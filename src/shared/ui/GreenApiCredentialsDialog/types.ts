@@ -1,4 +1,4 @@
-import type { Dispatch, FormEventHandler, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction, SubmitEventHandler } from 'react'
 
 export type GreenApiCredentialsDialogProps = {
   idInstance: string
@@ -6,6 +6,6 @@ export type GreenApiCredentialsDialogProps = {
   apiTokenInstance: string
   setApiTokenInstance: Dispatch<SetStateAction<string>>
   error: string
-  onSubmit: FormEventHandler<HTMLFormElement>
+  onSubmit: SubmitEventHandler<HTMLFormElement>
   onClose: () => void
 }

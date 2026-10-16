@@ -1,4 +1,9 @@
-import type { Dispatch, FormEventHandler, RefObject, SetStateAction } from 'react'
+import type {
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  SubmitEventHandler,
+} from 'react'
 import type { ChatMessage } from '@/entities/Chat'
 import type { GreenApiCredentials } from '@/shared/api/greenApi'
 
@@ -9,7 +14,7 @@ export type ChatSidebarProps = {
   phoneInput: string
   setPhoneInput: Dispatch<SetStateAction<string>>
   phoneInputRef: RefObject<HTMLInputElement | null>
-  createChat: FormEventHandler<HTMLFormElement>
+  createChat: SubmitEventHandler<HTMLFormElement>
   openCredentials: () => void
   formatTime: (timestamp: number) => string
 }

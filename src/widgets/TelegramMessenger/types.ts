@@ -1,11 +1,11 @@
-import {
+import type {
   Dispatch,
-  FormEventHandler,
+  SubmitEventHandler,
   RefObject,
   SetStateAction,
 } from 'react'
-import { ChatMessage, ChatConnectionState } from '@/entities/Chat'
-import { GreenApiCredentials } from '@/shared/api/greenApi'
+import type { ChatMessage, ChatConnectionState } from '@/entities/Chat'
+import type { GreenApiCredentials } from '@/shared/api/greenApi'
 
 export type TelegramMessengerProps = {
   credentials: GreenApiCredentials | null
@@ -26,9 +26,9 @@ export type TelegramMessengerProps = {
   connectionState: ChatConnectionState
   messageListRef: RefObject<HTMLDivElement | null>
   phoneInputRef: RefObject<HTMLInputElement | null>
-  createChat: FormEventHandler<HTMLFormElement>
-  saveCredentials: FormEventHandler<HTMLFormElement>
-  sendMessage: FormEventHandler<HTMLFormElement>
+  createChat: SubmitEventHandler<HTMLFormElement>
+  saveCredentials: SubmitEventHandler<HTMLFormElement>
+  sendMessage: SubmitEventHandler<HTMLFormElement>
   openCredentials: () => void
   closeChat: () => void
   focusPhoneInput: () => void

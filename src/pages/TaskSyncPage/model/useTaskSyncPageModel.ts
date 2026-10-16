@@ -1,4 +1,5 @@
-import { FormEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { SubmitEvent } from 'react'
 import { ChatMessage } from '@/entities/Chat'
 import { GreenApiCredentials } from '@/shared/api/greenApi'
 import { useReceiveChatMessages } from '@/features/receiveChatMessages'
@@ -48,7 +49,7 @@ export function useTaskSyncPageModel() {
     onMessageSent: appendMessage,
   })
 
-  const createChat = (event: FormEvent<HTMLFormElement>) => {
+  const createChat = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
     const normalizedPhone = phoneInput.replace(/\D/g, '')
     if (normalizedPhone.length < 7 || normalizedPhone.length > 15) {
@@ -66,7 +67,7 @@ export function useTaskSyncPageModel() {
     setError('')
   }
 
-  const saveCredentials = (event: FormEvent<HTMLFormElement>) => {
+  const saveCredentials = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
     const idInstance = idInstanceInput.trim()
     const apiTokenInstance = apiTokenInput.trim()
@@ -79,7 +80,7 @@ export function useTaskSyncPageModel() {
     setError('')
   }
 
-  const sendMessage = async (event: FormEvent<HTMLFormElement>) => {
+  const sendMessage = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
     await sendChatMessage(draft)
   }
