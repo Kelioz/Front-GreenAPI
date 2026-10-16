@@ -1,4 +1,4 @@
-import MainPage from '@/pages/TaskSyncPage/MainPage'
+import MainPage from '@/pages/TaskSyncPage'
 import { Routes, Route } from 'react-router-dom'
 
 export function Router() {

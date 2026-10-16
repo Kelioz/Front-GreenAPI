@@ -1,0 +1,135 @@
+.root {
+  &__composer {
+      padding: 13px 5% 20px;
+      background: rgb(255 255 255 / 82%);
+      border-top: 1px solid #eff2f5;
+    }
+
+  &__composerBox {
+      position: relative;
+
+      display: flex;
+      align-items: flex-end;
+
+      min-height: 56px;
+      padding: 10px 10px 10px 16px;
+
+      background: #f8fafb;
+      border: 1px solid #edf0f3;
+      border-radius: 13px;
+
+      transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+
+      &:focus-within {
+        background: #fff;
+        border-color: #b6d5ee;
+        box-shadow: 0 0 0 3px rgb(49 133 213 / 6%);
+      }
+
+      textarea {
+        resize: vertical;
+
+        flex: 1;
+
+        min-height: 23px;
+        max-height: 125px;
+        padding: 3px 8px 3px 0;
+
+        font: inherit;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #344555;
+
+        background: transparent;
+        border: 0;
+        outline: 0;
+
+        &::placeholder {
+          color: #a2adb7;
+        }
+      }
+    }
+
+  &__composerHint {
+      align-self: center;
+
+      margin: 0 14px 0 8px;
+
+      font-size: 9px;
+      color: #b0bac3;
+      white-space: nowrap;
+    }
+
+  &__sendButton {
+      cursor: pointer;
+
+      display: grid;
+      flex: 0 0 37px;
+      place-items: center;
+
+      width: 37px;
+      height: 37px;
+      padding: 0;
+
+      color: #fff;
+
+      background: var(--blue);
+      border: 0;
+      border-radius: 11px;
+      box-shadow: 0 4px 9px rgb(49 133 213 / 21%);
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+      &:disabled {
+        cursor: not-allowed;
+        background: #b6cbdc;
+        box-shadow: none;
+      }
+
+      &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background: var(--blue-dark);
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+        fill: currentcolor;
+      }
+    }
+
+  &__errorBanner {
+      margin: 0 5% 8px;
+    }
+
+  &__errorInline {
+      display: block;
+      margin: 7px 3px 0;
+      font-size: 10px;
+      color: #b64747;
+    }
+}
+
+@media (width <= 760px) {
+  .root {
+      &__composerHint {
+            display: none;
+          }
+  }
+}
+
+@media (width <= 580px) {
+  .root {
+      &__composer {
+            padding: 10px 10px 13px;
+          }
+
+      &__composerBox {
+            padding-left: 12px;
+          }
+  }
+}
