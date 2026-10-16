@@ -30,9 +30,7 @@ export function ActiveChat({
                 connectionState === 'connected' ? styles.root__statusOn : ''
               }
             />
-            {connectionState === 'connecting'
-              ? 'подключение…'
-              : 'ожидание соединения'}
+            {connectionState === 'connecting' ? 'подключение…' : 'подключено'}
           </span>
         </div>
         <div className={styles.root__headerActions}>
