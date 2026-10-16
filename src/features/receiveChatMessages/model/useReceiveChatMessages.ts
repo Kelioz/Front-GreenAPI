@@ -36,12 +36,16 @@ export function useReceiveChatMessages({
 
     let isActive = true
     let timeoutId: number | undefined
+    const abortController = new AbortController()
     const chatId = getPhoneChatId(activePhone)
     const connectionKey = `${credentials.idInstance}:${activePhone}`
 
     const receiveNext = async () => {
       try {
-        const notification = await receiveGreenApiNotification(credentials)
+        const notification = await receiveGreenApiNotification(
+          credentials,
+          abortController.signal,
+        )
         if (!isActive) return
 
         if (notification?.receiptId !== undefined) {
@@ -79,7 +83,11 @@ export function useReceiveChatMessages({
 
         if (isActive) {
           setConnectionResult({ key: connectionKey, state: 'connected' })
-          timeoutId = window.setTimeout(receiveNext, 1000)
+          if (notification?.receiptId === undefined) {
+            timeoutId = window.setTimeout(receiveNext, 5000)
+          } else {
+            void receiveNext()
+          }
         }
       } catch (error) {
         if (!isActive) return
@@ -97,6 +105,7 @@ export function useReceiveChatMessages({
 
     return () => {
       isActive = false
+      abortController.abort()
       if (timeoutId !== undefined) window.clearTimeout(timeoutId)
     }
   }, [activePhone, credentials, setError, setMessages])

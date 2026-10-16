@@ -46,11 +46,13 @@ export async function sendGreenApiMessage(
 }
 
 export async function receiveGreenApiNotification(
-  credentials: GreenApiCredentials
+  credentials: GreenApiCredentials,
+  signal?: AbortSignal,
 ) {
   const { base, token } = getInstanceUrl(credentials)
   const response = await fetch(
-    `${base}/receiveNotification/${token}?receiveTimeout=20`
+    `${base}/receiveNotification/${token}?receiveTimeout=20`,
+    { signal },
   )
 
   return readResponse<GreenApiNotification>(response)

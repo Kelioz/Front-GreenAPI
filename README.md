@@ -6,14 +6,15 @@
 
 ```bash
 yarn install
-yarn dev
+yarn run  dev
 ```
 
-Для production-сборки: `yarn build`.
+Для production-сборки: `yarn build`, `yarn run preview` .
 
 ## Запуск через Docker Compose
 
 ```bash
+yarn install
 docker compose up --build
 ```
 

@@ -6,7 +6,7 @@ RUN corepack enable
 
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn/releases/ .yarn/releases/
-RUN yarn install --immutable
+RUN yarn install
 
 COPY index.html ./
 COPY public/ ./public/
