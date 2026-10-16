@@ -11,6 +11,18 @@ yarn dev
 
 Для production-сборки: `yarn build`.
 
+## Запуск через Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Откройте [http://localhost:8080](http://localhost:8080). Остановить контейнер:
+
+```bash
+docker compose down
+```
+
 ## Использование
 
 1. Нажмите **Подключить GREEN-API** и введите `idInstance` и `apiTokenInstance`.

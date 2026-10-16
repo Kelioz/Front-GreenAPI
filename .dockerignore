@@ -1,0 +1,9 @@
+.git
+.vscode
+node_modules
+dist
+coverage
+.env
+.env.*
+.yarn/cache
+.yarn/install-state.gz
